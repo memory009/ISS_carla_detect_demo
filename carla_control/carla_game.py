@@ -27,6 +27,7 @@ class carla_client:
         self.carla_world = self.carla_client.load_world('Town03')
         
     def debug_luanch_test(self) -> None:
+        # actor_list = []
         original_settings = self.carla_world.get_settings()
         settings = self.carla_world.get_settings()
         traffic_manager = self.carla_client.get_trafficmanager(8000)
@@ -45,7 +46,18 @@ class carla_client:
         vehicle_transform = np.random.choice(vehicle_transform)
         self.vehicle = self.carla_world.spawn_actor(vehicle_bp, vehicle_transform)
         self.vehicle.set_autopilot(True)
+        # actor_list.append(self.vehicle)
         
+        # # create npc vehicle
+        # for i in range(50):
+        #     npc_vehicle_bp = random.choice(blueprint_library.filter('vehicle'))
+        #     transform_npc = random.choice(self.carla_world.get_map().get_spawn_points())
+        #     npc = self.carla_world.try_spawn_actor(npc_vehicle_bp, transform_npc)
+        #     actor_list.append(npc)
+
+        #     for v in self.carla_world.get_actors().filter('*vehicle*'):
+        #         v.set_autopilot(True)
+
         self.lidar_t = lidar_carla(self.carla_world, self.vehicle, pcs_cache=False, need_gt=True)
         self.lidar_t.init_lidar()
             

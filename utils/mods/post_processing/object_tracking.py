@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from pytorch3d.ops import knn_points, knn_gather
+# from pytorch3d.ops import knn_points, knn_gather
 from collections import deque
 
 from typing import List, Dict

@@ -4,7 +4,7 @@ dataset/
 test/
 
 # Pytorch weights and cache
-*.pt
+# *.pt
 *.pth
 
 # Byte-compiled / optimized / DLL files
